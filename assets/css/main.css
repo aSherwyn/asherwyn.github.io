@@ -9,7 +9,7 @@
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
-pre, a, abbr, acronym, address, big, cite,
+pre, pblock, dblock, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
@@ -267,7 +267,28 @@ input, select, textarea {
 		margin: 0 0.25rem;
 		padding: 0.25rem 0.65rem;
 	}
-
+	
+	pblock {
+			margin: 0 0 2rem 0;
+			display: block;			
+			padding: 1rem 1rem 1rem 1rem;
+			overflow-x: auto;
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 4px;
+			font-size: 1rem;			
+	}
+	
+	dblock {
+			margin: 0 0 2rem 0;
+			display: block;			
+			padding: 1rem 1rem 1rem 1rem;
+			overflow-x: auto;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 4px;
+			box-shadow: inset 0 0 0 1px rgba(200, 220, 255, 0.2);
+			font-size: 1rem;			
+	}
+	
 	pre {
 		-webkit-overflow-scrolling: touch;
 		font-family: "Courier New", monospace;
@@ -635,6 +656,7 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
+
 /* Image */
 
 	.image {
@@ -663,11 +685,11 @@ input, select, textarea {
 		}
 
 		.image.left, .image.right {
-			max-width: 40%;
+			max-width: 30%;
 		}
 
 			.image.left img, .image.right img {
-				width: 100%;
+				width: 0%;
 			}
 
 		.image.left {
@@ -678,23 +700,28 @@ input, select, textarea {
 
 		.image.right {
 			float: right;
-			padding: 0 0 1em 1.5em;
+			padding: 0 0 0 0;
+			margin-left: 2rem;
 			top: 0.25em;
 		}
-
+		
 		.image.fit {
 			display: block;
 			margin: 0 0 2rem 0;
-			width: 100%;
+			width: 30%;
 		}
 
 			.image.fit img {
 				width: 100%;
 			}
-
+		
+		.image.faded {
+			opacity: 0.8;
+		}
+		
 		.image.main {
 			display: block;
-			margin: 2.5rem 0;
+			margin: 1rem 0;
 			width: 100%;
 		}
 
@@ -732,7 +759,7 @@ input, select, textarea {
 
 	ul {
 		list-style: disc;
-		margin: 0 0 2rem 0;
+		margin: 0 0 0 0;
 		padding-left: 1em;
 	}
 
@@ -919,7 +946,7 @@ input, select, textarea {
 			}
 
 				ul.icons li a:hover {
-					background-color: rgba(255, 255, 255, 0.075);
+					background-color: rgba(255, 255, 255, 0.275);
 				}
 
 				ul.icons li a:active {
@@ -1023,6 +1050,7 @@ input, select, textarea {
 		line-height: 2.75rem;
 		outline: 0;
 		padding: 0 1.25rem 0 1.35rem;
+		margin: 0 0 0.25rem 0;
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -1034,7 +1062,7 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: rgba(255, 255, 255, 0.075);
+			background-color: rgba(255, 255, 255, 0.275);
 		}
 
 		input[type="submit"]:active,
@@ -1069,6 +1097,8 @@ input, select, textarea {
 			font-size: 0.6rem;
 			height: 2.0625rem;
 			line-height: 2.0625rem;
+			padding: 0 1rem 0 1rem;
+			margin: 0 0 0.25rem 0;
 		}
 
 		input[type="submit"].primary,
@@ -1076,7 +1106,18 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #ffffff;
+			background-color: rgba(255, 255, 255, 0.6);
+			color: #1b1f22 !important;
+			font-weight: 600;
+		}
+		
+		input[type="submit"].nan,
+		input[type="reset"].nan,
+		input[type="button"].nan,
+		button.nan,
+		.button.nan {
+			pointer-events: none;
+			background-color: rgba(255, 255, 255, 1);
 			color: #1b1f22 !important;
 			font-weight: 600;
 		}
@@ -1092,7 +1133,7 @@ input, select, textarea {
 		.button:disabled {
 			pointer-events: none;
 			cursor: default;
-			opacity: 0.25;
+			opacity: 0.5;
 		}
 
 	input[type="submit"],
@@ -1138,9 +1179,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 
@@ -1364,7 +1408,7 @@ input, select, textarea {
 				}
 
 					#header nav ul li a:hover {
-						background-color: rgba(255, 255, 255, 0.075);
+						background-color: rgba(255, 255, 255, 0.275);
 					}
 
 					#header nav ul li a:active {
@@ -1541,8 +1585,9 @@ input, select, textarea {
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-			background-color: rgba(27, 31, 34, 0.85);
+			background-color: rgba(200, 220, 255, 0.05);
 			border-radius: 4px;
+			box-shadow: inset 0 0 0 1px rgba(200, 220, 255, 0.1);
 			opacity: 0;
 		}
 
@@ -1587,7 +1632,7 @@ input, select, textarea {
 				}
 
 				#main article .close:hover:before {
-					background-color: rgba(255, 255, 255, 0.075);
+					background-color: rgba(255, 255, 255, 0.275);
 				}
 
 				#main article .close:active:before {
